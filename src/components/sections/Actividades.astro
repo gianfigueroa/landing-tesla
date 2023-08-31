@@ -1,0 +1,42 @@
+---
+import ItemActividad from "../ItemActividad.astro";
+import Section from "../Section.astro";
+interface Actividad {
+    title: string;
+    subtitle: string;
+    src: string;
+  }
+interface Props {
+  index: number;
+  actividades: Actividad[];
+}
+const { actividades,index} = Astro.props;
+const prefix = index>0?index:""
+---
+
+<Section
+  title="Actividades"
+  subtitle=""
+  color="black"
+  background="white"
+  id="actividades"+prefix
+>
+  <div slot="content" class="grid grid-cols-2 pt-12 xl:px-8 ">
+    {actividades.map((item,index) => (
+      <ItemActividad  title={item.title} color="" reverse={index%2===0?true:false}  subtitle={item.subtitle} id="" imagenActividad={{src:item.src}} ></ItemActividad>
+    ))}
+  </div>
+  <div slot="footer" class="gap-x-6 mx-auto">
+
+
+   </div>
+ 
+  <!--<img
+    slot="background"
+    alt="Model 3"
+    class="h-full w-full object-cover object-center"
+    src="maloca-hamacas.webp"
+    id="bg-image-model3"
+  />-->
+</Section>
+

@@ -1,41 +1,61 @@
 ---
-import Accessories from "../components/Accessories.astro";
-import HeroSection from "../components/HeroSection.astro";
 import LandingHeader from "../components/LandingHeader.astro";
-import ModelS from "../components/ModelS.astro";
-import ModelThree from "../components/ModelThree.astro";
-import ModelX from "../components/ModelX.astro";
-import ModelY from "../components/ModelY.astro";
-import PowerWall from "../components/PowerWall.astro";
+import Actividades from "../components/sections/Actividades.astro";
+import CaminoAncestral from "../components/sections/CaminoAncestral.astro";
+import VideoSection from "../components/sections/VideoSection.astro";
 import Layout from "../layouts/Layout.astro";
+let actividades=[
+  {
+    title:"Caminata por el bosque1",
+    subtitle:"aventura por el bosque",
+    src:"actividad-1.webp"
+  },
+  {
+    title:"Caminata por el bosque2",
+    subtitle:"aventura por el bosque",
+    src:"actividad-2.webp"
+  },
+  {
+    title:"Caminata por el bosque3",
+    subtitle:"aventura por el bosque",
+    src:"actividad-1.webp"
+  },
+  {
+    title:"Caminata por el bosque4",
+    subtitle:"aventura por el bosque",
+    src:"actividad-2.webp"
+  }
+]
 ---
 
-<Layout title="Tesla - El coche de tus sueños (y de Elon Musk)">
+<Layout title="Camino Ancestral - Medicina para el Alma">
   <LandingHeader />
 
   <main
     class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
   >
     <div class="snap-center">
-      <HeroSection />
+      <VideoSection />
     </div>
     <div class="snap-center">
-      <ModelY />
+      <CaminoAncestral />
     </div>
-    <div class="snap-center">
-      <ModelThree />
-    </div>
-    <div class="snap-center">
-      <ModelS />
-    </div>
-    <div class="snap-center">
-      <ModelX />
-    </div>
-    <div class="snap-center">
-      <PowerWall />
-    </div>
-    <div class="snap-center">
-      <Accessories />
-    </div>
+    {actividades.map((item, index) => (
+      <div class="snap-center">
+          {index%2===0 && actividades[index+1] && (      
+              <Actividades index={index} actividades={[item,actividades[index+1]]} />
+          )}
+          {index%2===0 && !actividades[index+1] && (      
+              <Actividades index={index} actividades={[item]} />
+          )
+          }
+      </div>
+    ))}
+
+    <!--<div class="snap-center">
+      <Blog />
+    </div>-->
+
   </main>
 </Layout>
+      

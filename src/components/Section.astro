@@ -1,28 +1,32 @@
 ---
-const { color, title, subtitle, id, showFooterContent } = Astro.props;
+const { color="black", title, subtitle, id,titleJustify="top",headerBackgroundColor,showFooterContent,background="white" } = Astro.props;
 const textColor = `text-${color}`;
+const backgroundColor = `bg-${background}`;
 import FooterMenu from './FooterMenu.astro';
 ---
 
 <section
-  class="landing-section bg-black h-screen w-screen text-center overflow-hidden relative"
-  data-header-color={color}
+  class={`${backgroundColor} landing-section bg-black h-screen w-screen text-center overflow-hidden relative`}
+  data-header-color={color} data-header-background-color={headerBackgroundColor}
   id={id}
 >
   <div class="z-30 relative h-full flex flex-col">
-    <header>
-      <h2 class={`${textColor} pt-40 text-[40px] font-medium`}>
+
+    <header class=`pt-20 sm:pt-40 flex flex-col flex-grow justify-${titleJustify}`>
+      <h2 class={`${textColor} text-4xl sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title text-lime-800	`}>
         {title}
       </h2>
       <p class={`${textColor} text-sm`}>
         {subtitle}
       </p>
     </header>
-
-    <footer class="flex flex-col flex-grow justify-end pb-20">
+    <div class="py-4 lg:py-0 px-8 xl:px-40">
+      <slot name="content" />
+    </div>
+    <footer class="flex flex-col flex-grow justify-end pb-32 footer-section">
       <slot name="footer" />
       <!-- Contidionally load footer: -->
-      {showFooterContent && <FooterMenu />}
+      {showFooterContent && <FooterMenu  />}
     </footer>
   </div>
 
@@ -30,3 +34,96 @@ import FooterMenu from './FooterMenu.astro';
     <slot name="background" />
   </div>
 </section>
+<style>
+  .headear-title {
+
+  }
+
+  @keyframes tracking-in-expand-fwd {
+  0% {
+    letter-spacing: -0.5em;
+    transform: translateZ(-700px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}    
+.bounce-in-top {
+	animation: bounce-in-top 1.1s both;
+}
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+    animation-timing-function: ease-in;
+  }
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  81% {
+    transform: translateY(-28px);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  95% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+  </style>
+  <script>
+    const titles = document.querySelectorAll('.headear-title');
+    const footers = document.querySelectorAll('.footer-section');
+
+const observerTitles = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    var element=entry.target as HTMLElement;
+
+    if (entry.isIntersecting) {
+      //entry.target.style.animation = 'none'; // Reset the animation
+      //entry.target.offsetWidth; // Trigger a reflow (optional, improves reliability)
+      element.style.animation = 'tracking-in-expand-fwd 0.8s ease-out both';
+    }
+  });
+});
+
+const observerFooters = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    var element=entry.target as HTMLElement;
+    if (entry.isIntersecting) {
+      //entry.target.style.animation = 'none'; // Reset the animation
+      //entry.target.offsetWidth; // Trigger a reflow (optional, improves reliability)
+      element.style.animation = 'bounce-in-top 1.1s both';
+    }
+  });
+});
+titles.forEach(title => {
+  observerTitles.observe(title);
+});
+footers.forEach(footer => {
+  observerFooters.observe(footer);
+});
+
+  </script>

@@ -2,24 +2,24 @@
 import Logo from "./Logo.astro"
 ---
 
-<header
+<header 
   id="landing-header"
-  class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
+  class="py-8 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
 >
   <div class="flex flex-grow basis-0">
     <a href="./"><Logo /></a>
   </div>
 
-  <nav class="hidden xl:block sm:hidden">
+  <nav class="xl:block">
     <ul
-      class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+      class="flex text-sm md:text-lg [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-2 md:[&>li>a]:px-8 [&>li>a]:py-2"
     >
-      <li><a href="#model-s">Model S</a></li>
-      <li><a href="#model-3">Model 3</a></li>
-      <li><a href="#model-x">Model X</a></li>
-      <li><a href="#model-y">Model Y</a></li>
+      <li><a href="#camino-ancestral">¿Quienes Somos?</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <!--<li><a href="#model-y">Model Y</a></li>
       <li><a href="#powerwall">Powerwall</a></li>
-      <li><a href="#accesorios">Carga</a></li>
+      <li><a href="#accesorios">Carga</a></li>-->
     </ul>
   </nav>
 
@@ -27,9 +27,9 @@ import Logo from "./Logo.astro"
     <ul
       class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
     >
-      <li class="hidden xl:block sm:hidden"><a href="#">Tienda</a></li>
-      <li class="hidden xl:block sm:hidden"><a href="#">Cuenta</a></li>
-      <li><a href="#">Menú</a></li>
+       <!--<li class="hidden xl:block sm:hidden"><a href="#">Tienda</a></li>
+      <li class="hidden xl:block sm:hidden"><a href="#">Contactanos</a></li>
+     <li><a href="#">Menú</a></li>-->
     </ul>
   </nav>
 
@@ -76,8 +76,8 @@ import Logo from "./Logo.astro"
 
   const observerOptions = {
     root: null,
-    rootMargin: "0px", // en cuanto se vea el elemento
-    threshold: 0.9, // porcentaje de visibilidad
+    //rootMargin: "0px", // en cuanto se vea el elemento
+    threshold: 0.5, // porcentaje de visibilidad
   }
 
   const observer = new IntersectionObserver((entries) => {
@@ -85,6 +85,8 @@ import Logo from "./Logo.astro"
       const { isIntersecting } = entry
       if (isIntersecting) {
         const color = entry.target.getAttribute("data-header-color")
+        const backgroundColor = entry.target.getAttribute("data-header-background-color")
+        headerEl.style.backgroundColor = backgroundColor
         headerEl.style.color = color
       }
     })

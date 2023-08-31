@@ -1,0 +1,32 @@
+---
+//import type { Radius } from './Radius';
+interface ImagenActividad {
+    src: string;
+    tl?: number;
+    tr?: number;
+    br?: number;
+    bl?: number; 
+ }
+interface Props {
+  color: string;
+  title: string;
+  subtitle: string;
+  id: string;
+  reverse?: boolean|false;
+  imagenActividad:ImagenActividad;
+}
+const { color, title, subtitle, id,imagenActividad,reverse} = Astro.props;
+const textColor = `text-${color}`;
+---
+  <div class=`z-30  px-2 items-center `>
+      <img src={imagenActividad.src} class="h-80 object-cover" alt="Imagen" >
+      <div class="">
+        <h2 class="text-2xl font-bold">{title}</h2>
+        <p class="text-sm">{subtitle}</p>
+      </div>
+  </div>
+
+  <div class="absolute top-0 bottom-0 h-full w-full z-10">
+    <slot name="background" />
+  </div>
+
