@@ -4,27 +4,53 @@ import Actividades from "../components/sections/Actividades.astro";
 import CaminoAncestral from "../components/sections/CaminoAncestral.astro";
 import VideoSection from "../components/sections/VideoSection.astro";
 import Layout from "../layouts/Layout.astro";
+
 let actividades=[
   {
-    title:"Caminata por el bosque1",
-    subtitle:"aventura por el bosque",
-    src:"actividad-1.webp"
+    title:"Ceremonias de ayahuasca",
+    subtitle:"Planta que Dios dejo para aprender a vivir",
+    src:"actividades/yage.jpg"
   },
   {
-    title:"Caminata por el bosque2",
+    title:"Retiros Espitiruales",
     subtitle:"aventura por el bosque",
-    src:"actividad-2.webp"
+    src:"actividades/retiros.jpg"
   },
   {
-    title:"Caminata por el bosque3",
+    title:"Apiterapia",
     subtitle:"aventura por el bosque",
-    src:"actividad-1.webp"
+    src:"actividades/abeja.jpg"
   },
   {
-    title:"Caminata por el bosque4",
+    title:"Kamboo",
     subtitle:"aventura por el bosque",
-    src:"actividad-2.webp"
-  }
+    src:"actividades/kamboo.jpg"
+  },  
+  {
+    title:"Mambe",
+    subtitle:"aventura por el bosque",
+    src:"actividades/mambe.jpg"
+  },
+  {
+    title:"Senderismo",
+    subtitle:"aventura por el bosque",
+    src:"actividades/senderismo.jpg"
+  },
+  {
+    title:"Musica Medicina",
+    subtitle:"aventura por el bosque",
+    src:"actividades/musica.jpg"
+  },
+  {
+    title:"Arte",
+    subtitle:"aventura por el bosque",
+    src:"actividades/arte.jpg"
+  },
+  {
+    title:"Integracion con los niños de la comunidad",
+    subtitle:"aventura por el bosque",
+    src:"actividades/ninos.jpg"
+  },
 ]
 ---
 
@@ -40,17 +66,9 @@ let actividades=[
     <div class="snap-center">
       <CaminoAncestral />
     </div>
-    {actividades.map((item, index) => (
-      <div class="snap-center">
-          {index%2===0 && actividades[index+1] && (      
-              <Actividades index={index} actividades={[item,actividades[index+1]]} />
-          )}
-          {index%2===0 && !actividades[index+1] && (      
-              <Actividades index={index} actividades={[item]} />
-          )
-          }
-      </div>
-    ))}
+    <div class="snap-center">
+      <Actividades  actividades={actividades} />
+    </div>
 
     <!--<div class="snap-center">
       <Blog />
