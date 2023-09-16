@@ -35,6 +35,7 @@ import FooterMenu from './FooterMenu.astro';
   </div>
 </section>
 <style>
+
   .headear-title {
 
   }
@@ -122,8 +123,8 @@ const observerFooters = new IntersectionObserver(entries => {
 titles.forEach(title => {
   observerTitles.observe(title);
 });
-footers.forEach(footer => {
-  observerFooters.observe(footer);
-});
+//footers.forEach(footer => {
+//  observerFooters.observe(footer);
+//});
 
   </script>

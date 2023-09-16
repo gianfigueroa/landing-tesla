@@ -1,6 +1,7 @@
 ---
 import ItemActividad from "../ItemActividad.astro";
 import Section from "../Section.astro";
+
 interface Actividad {
     title: string;
     subtitle: string;
@@ -12,52 +13,79 @@ interface Props {
 const { actividades,} = Astro.props;
 
 ---
-
+<script>
+  import { Navigation, Pagination,Autoplay } from 'swiper/modules';
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+  // init Swiper:
+  const swiper = new Swiper('.swiper', {
+    // configure Swiper to use modules
+    modules: [Navigation, Pagination,Autoplay],
+    slidesPerView: 1,
+    watchSlidesProgress: true,
+    breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1500: {
+          slidesPerView: 4,
+          spaceBetween: 50,
+        },
+    },
+    spaceBetween: 30,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      }
+  });
+</script>
 <Section
   title="Actividades"
   subtitle=""
   color="black"
   background="white"
-  id="actividades"
+  id="actividades",
+  showFooterContent={true}
 >
-  <div slot="content" class="relative  ">
-    <div  id="content-actividades" class="flex gap-4 overflow-x-scroll scrollbar-thin pt-12 pb-16 xl:px-4">
-      {actividades.map((item,index) => (
-        <ItemActividad  title={item.title} color="" reverse={index%2===0?true:false}  subtitle={item.subtitle} id="" imagenActividad={{src:item.src}} ></ItemActividad>
-      ))}
+
+  <div slot="content" >
+
+    <div class="swiper h-full ">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {actividades.map((item,index) => (
+          <div class="swiper-slide">
+          <ItemActividad  title={item.title} color="" reverse={index%2===0?true:false}  subtitle={item.subtitle} id="" imagenActividad={{src:item.src}} ></ItemActividad>
+          </div>
+        ))}
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
     </div>
-  
-     <button id="data-carousel-prev" type="button" class="absolute -top-2 left-0 z-30 flex items-end justify-center h-full px-4 cursor-pointer group focus:outline-none">
-      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-          </svg>
-          <span class="hidden">Previous</span>
-      </span>
-  </button>
-  <button id="data-carousel-next" type="button" class="absolute -top-2 right-0 z-30 flex items-end  justify-center h-full px-4 cursor-pointer group focus:outline-none">
-      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-          </svg>
-          <span class="hidden">Next</span>
-      </span>
-  </button>
   </div>
   
-<script>
-  const  buttonPrev= document.getElementById("data-carousel-prev");
-  const  buttonNext= document.getElementById("data-carousel-next");
-  buttonPrev.addEventListener("click", function(){
-    document.getElementById("content-actividades").scrollLeft -= 300;
-  });
-  buttonNext.addEventListener("click", function(){
-    document.getElementById("content-actividades").scrollLeft += 300;
-  });
-</script>
+
+   
 
 
- 
+
   <!--<img
     slot="background"
     alt="Model 3"

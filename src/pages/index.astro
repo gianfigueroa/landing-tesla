@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 
 let actividades=[
   {
-    title:"Ceremonias de ayahuasca",
+    title:"Ceremonia Ayahuasca",
     subtitle:"Planta que Dios dejo para aprender a vivir",
     src:"actividades/yage.jpg"
   },
@@ -67,13 +67,16 @@ let actividades=[
       <CaminoAncestral />
     </div>
     <div class="snap-center">
-      <Actividades  actividades={actividades} />
+      <Actividades actividades={actividades} />
     </div>
-
     <!--<div class="snap-center">
       <Blog />
     </div>-->
-
+    <section class="fake-section sm:hidden">
+      <div class="container">
+       
+      </div>
+    </section>
   </main>
 </Layout>
       
