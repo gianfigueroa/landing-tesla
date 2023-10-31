@@ -4,7 +4,8 @@ import Logo from "./Logo.astro"
 
 <header 
   id="landing-header"
-  class="py-8 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
+  class:list={[ 'hello goodbye', { world: true }, [ 'friend' ] ]}
+  class="py-6 px-10 flex items-center fixed top-0 w-full justify-between z-40 bg-[#00000000] text-white"
 >
   <div class="flex flex-grow basis-0">
     <a href="./"><Logo /></a>
@@ -69,29 +70,19 @@ import Logo from "./Logo.astro"
       menuBackDrop.style.visibility = "hidden"
     })
   })
-</script>
+  const classNavTop=["py-6","bg-[#00000000]", "text-white"]
+  const classNavScrolled=["py-4","bg-white", "text-secondary", "shadow-xl"]
+  document.addEventListener("scroll", function () {
 
-<script>
-  const headerEl = document.querySelector("#landing-header") as HTMLElement
+    const navbar = document.querySelector("#landing-header") as HTMLElement
+    var scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 200) {
+      navbar.classList.remove(...classNavTop);
+      navbar.classList.add(...classNavScrolled);
 
-  const observerOptions = {
-    root: null,
-    //rootMargin: "0px", // en cuanto se vea el elemento
-    threshold: 0.5, // porcentaje de visibilidad
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const { isIntersecting } = entry
-      if (isIntersecting) {
-        const color = entry.target.getAttribute("data-header-color")
-        const backgroundColor = entry.target.getAttribute("data-header-background-color")
-        headerEl.style.backgroundColor = backgroundColor
-        headerEl.style.color = color
-      }
-    })
-  }, observerOptions)
-
-  const sectionElements = document.querySelectorAll(".landing-section")
-  sectionElements.forEach((section) => observer.observe(section))
+    } else {
+      navbar.classList.add(...classNavTop);
+      navbar.classList.remove(...classNavScrolled);
+    }
+  });
 </script>

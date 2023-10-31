@@ -7,7 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "publish": "astro build && firebase deploy",
+    "deploy": "astro build && firebase deploy",
     "astro": "astro"
   },
   "dependencies": {

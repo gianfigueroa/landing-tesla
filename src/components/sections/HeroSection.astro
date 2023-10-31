@@ -1,0 +1,44 @@
+---
+import Section from "../Section.astro"
+---
+<section
+  class="landing-section bg-black h-screen w-screen text-center relative"
+  data-header-color="white" data-header-background-color="#00000000"
+>
+  <div class="z-30 relative h-full flex flex-col">
+
+    <header class=`pt-24 sm:pt-40 flex flex-col flex-grow justify-center`>
+      <h1 class={`text-white text-4xl sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title text-lime-800	`}>
+       Camino Ancestral
+      </h1>
+      <p class={`text-white text-sm`}>
+            </p>
+    </header>
+    <div class="py-4 lg:py-0 px-8 xl:px-40">
+    </div>
+    <footer class="flex flex-row justify-center pb-32">
+      <a
+      class="border-[1px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 mx-2 inline-block hover:bg-white hover:text-black transition-colors min-w-[10%]"
+      href="#"
+    >
+      Tienda</a
+    >
+      <a
+      class="border-[1px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 mx-2 inline-block hover:bg-white hover:text-black transition-colors min-w-[10%]"
+      href="#"
+    >
+      Contacto</a
+    >
+    </footer>
+  </div>
+
+  <div class="z-10 absolute top-0 bottom-0 h-full w-full ">
+    <video
+    playsinline
+    class="object-center object-cover h-full w-full"
+    autoplay
+    muted
+    loop
+    src="video2.mp4"></video> 
+  </div>
+</section>

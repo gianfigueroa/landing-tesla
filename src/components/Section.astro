@@ -6,13 +6,13 @@ import FooterMenu from './FooterMenu.astro';
 ---
 
 <section
-  class={`${backgroundColor} landing-section bg-black h-screen w-screen text-center overflow-hidden relative`}
+  class={`${backgroundColor} landing-section bg-black h-full w-screen text-center overflow-hidden relative`}
   data-header-color={color} data-header-background-color={headerBackgroundColor}
   id={id}
 >
-  <div class="z-30 relative h-full flex flex-col">
+  <div class="z-30 relative flex flex-col">
 
-    <header class=`pt-24 sm:pt-40 flex flex-col flex-grow justify-${titleJustify}`>
+    <header class=`pt-8 sm:pt-8 flex flex-col flex-grow justify-${titleJustify}`>
       <h2 class={`${textColor} text-4xl sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title text-lime-800	`}>
         {title}
       </h2>
@@ -20,10 +20,11 @@ import FooterMenu from './FooterMenu.astro';
         {subtitle}
       </p>
     </header>
-    <div class="py-4 lg:py-0 px-8 xl:px-40">
+    <div class="px-8 xl:px-40">
       <slot name="content" />
+      <slot name="second-content" />
     </div>
-    <footer class="flex flex-col flex-grow justify-end pb-32 footer-section">
+    <footer class="flex flex-col flex-grow justify-end footer-section">
       <slot name="footer" />
       <!-- Contidionally load footer: -->
       {showFooterContent && <FooterMenu  />}
@@ -35,10 +36,6 @@ import FooterMenu from './FooterMenu.astro';
   </div>
 </section>
 <style>
-
-  .headear-title {
-
-  }
 
   @keyframes tracking-in-expand-fwd {
   0% {

@@ -2,81 +2,75 @@
 import LandingHeader from "../components/LandingHeader.astro";
 import Actividades from "../components/sections/Actividades.astro";
 import CaminoAncestral from "../components/sections/CaminoAncestral.astro";
-import VideoSection from "../components/sections/VideoSection.astro";
+import VideoSection from "../components/sections/HeroSection.astro";
 import Layout from "../layouts/Layout.astro";
-
+import ActivityYage from "../assets/images/actividades/yage.jpg"
+import Retiros from "../assets/images/actividades/retiros.jpg"
+import Abeja from "../assets/images/actividades/abeja.jpg"
+import Kamboo from "../assets/images/actividades/kamboo.jpg"
+import Mambe from "../assets/images/actividades/mambe.jpg"
+import Senderismo from "../assets/images/actividades/senderismo.jpg"
+import Musica from "../assets/images/actividades/musica.jpg"
+import Arte from "../assets/images/actividades/arte.jpg"
+import Ninos from "../assets/images/actividades/ninos.jpg"
+import HeroSection from "../components/sections/HeroSection.astro";
 let actividades=[
   {
     title:"Ceremonia Ayahuasca",
     subtitle:"Planta que Dios dejo para aprender a vivir",
-    src:"actividades/yage.jpg"
+    image:ActivityYage
   },
   {
     title:"Retiros Espitiruales",
     subtitle:"aventura por el bosque",
-    src:"actividades/retiros.jpg"
+    image:Retiros
   },
   {
     title:"Apiterapia",
     subtitle:"aventura por el bosque",
-    src:"actividades/abeja.jpg"
+    image:Abeja
   },
   {
     title:"Kamboo",
     subtitle:"aventura por el bosque",
-    src:"actividades/kamboo.jpg"
+    image:Kamboo
   },  
   {
     title:"Mambe",
     subtitle:"aventura por el bosque",
-    src:"actividades/mambe.jpg"
+    image:Mambe
   },
   {
     title:"Senderismo",
     subtitle:"aventura por el bosque",
-    src:"actividades/senderismo.jpg"
+    image:Senderismo
   },
   {
     title:"Musica Medicina",
     subtitle:"aventura por el bosque",
-    src:"actividades/musica.jpg"
+    image:Musica
   },
   {
     title:"Arte",
     subtitle:"aventura por el bosque",
-    src:"actividades/arte.jpg"
+    image:Arte
   },
   {
     title:"Integracion con los niños de la comunidad",
     subtitle:"aventura por el bosque",
-    src:"actividades/ninos.jpg"
+    image:Ninos
   },
 ]
 ---
-
 <Layout title="Camino Ancestral - Medicina para el Alma">
-  <LandingHeader />
+  <LandingHeader  />
 
   <main
-    class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
+    class="w-full overflow-y-auto overflow-x-hidden scroll-smooth"
   >
-    <div class="snap-center">
-      <VideoSection />
-    </div>
-    <div class="snap-center">
-      <CaminoAncestral />
-    </div>
-    <div class="snap-center">
+      <HeroSection />
       <Actividades actividades={actividades} />
-    </div>
-    <!--<div class="snap-center">
-      <Blog />
-    </div>-->
-    <section class="fake-section sm:hidden">
-      <div class="container">
-       
-      </div>
-    </section>
+      <CaminoAncestral />
   </main>
 </Layout>
       

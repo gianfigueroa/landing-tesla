@@ -18,7 +18,12 @@ module.exports = {
 			yellow: colors.yellow,
 			lime: colors.lime,
 		  },
-		extend: {},
+		extend: {
+			colors: {
+				primary: "#365314", // Cambia el color primario
+				secondary: '#365314', // Cambia el color secundario
+			  },
+		},
 	},
 	plugins: [
 		require('tailwind-scrollbar'),
