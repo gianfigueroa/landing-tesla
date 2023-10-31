@@ -11,9 +11,14 @@ import Mambe from "../assets/images/actividades/mambe.jpg"
 import Senderismo from "../assets/images/actividades/senderismo.jpg"
 import Musica from "../assets/images/actividades/musica.jpg"
 import Arte from "../assets/images/actividades/arte.jpg"
-import Ninos from "../assets/images/actividades/ninos.jpg"
+import Ninos from "../assets/images/actividades/ninos.png"
+import PMambe from "../assets/images/productos/mambe.jpeg"
+import Ambil from "../assets/images/productos/ambil.jpeg"
 import HeroSection from "../components/sections/HeroSection.astro";
 import Tienda from "../components/sections/Tienda.astro";
+import FooterMenu from "../components/FooterMenu.astro";
+import Contacto from "../components/sections/Contacto.astro";
+import Youtube from "../components/sections/Youtube.astro";
 let actividades=[
   {
     title:"Ceremonia Ayahuasca",
@@ -64,13 +69,13 @@ let actividades=[
 let products=[
   {
     title:"Mambe",
-    subtitle:"Medicina ancestral de la coca.",
-    image:ActivityYage
+    subtitle:"Aclara mente, espiritu y la palabra.",
+    image:PMambe
   },
   {
     title:"Ambil",
-    subtitle:"Espacios de tiempo dedicados a la búsqueda interior.",
-    image:Retiros
+    subtitle:"Pasta de tabaco, para limpiarse y sanarse.",
+    image:Ambil
   },
   {
     title:"Rape",
@@ -104,6 +109,9 @@ let products=[
       <CaminoAncestral />
       <Actividades actividades={actividades} />
       <Tienda products={products} />
+      <Youtube/>
+      <Contacto/>
+      <FooterMenu  />
   </main>
 </Layout>
       

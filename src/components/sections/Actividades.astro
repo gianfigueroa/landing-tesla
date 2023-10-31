@@ -17,16 +17,16 @@ const { actividades,} = Astro.props;
 
 <section
  id="actividades",
-  class="bg-white h-full w-screen text-center relative px-4 md:px-8 lg:px-16"
+  class="bg-white h-full w-screen text-center relative p-4 md:px-8 lg:px-16"
   data-header-color="white" data-header-background-color="#00000000"
 >
 
-      <h1 class="text-lime-800 text-[40px] sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title ">
+      <h2 class="text-lime-800 py-12 text-[40px] sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title ">
         Actividades
-      </h1>
+      </h2>
 
 
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
+    <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4">
       {actividades.map((item,index) => (
         <ItemActividad  title={item.title} color="" subtitle={item.subtitle} id="" imagenActividad={item.image} ></ItemActividad>
       ))}
