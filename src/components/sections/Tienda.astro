@@ -3,32 +3,32 @@ import type { ImageMetadata } from "astro";
 import ItemActividad from "../ItemActividad.astro";
 
 
-interface Actividad {
+interface Product {
     title: string;
     subtitle: string;
     image: ImageMetadata;
   }
 interface Props {
-  actividades: Actividad[];
+  products: Product[];
 }
-const { actividades,} = Astro.props;
+const { products,} = Astro.props;
 
 ---
 
 <section
- id="actividades",
+ id="tienda",
   class="bg-white h-full w-screen text-center relative px-4 md:px-8 lg:px-16"
   data-header-color="white" data-header-background-color="#00000000"
 >
 
       <h1 class="text-lime-800 text-[40px] sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title ">
-        Actividades
+        Tienda Ancestral
       </h1>
 
 
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
-      {actividades.map((item,index) => (
-        <ItemActividad  title={item.title} color="" subtitle={item.subtitle} id="" imagenActividad={item.image} ></ItemActividad>
+      {products.map((item,index) => (
+        <ItemActividad  title={item.title} color=""  subtitle={item.subtitle} id="" imagenActividad={item.image} ></ItemActividad>
       ))}
     </div>
 

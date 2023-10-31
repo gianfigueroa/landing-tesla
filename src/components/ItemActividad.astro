@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-interface ImagenActividad {
+interface CustomImagen {
     src: string;
  }
 interface Props {
@@ -9,20 +9,19 @@ interface Props {
   title: string;
   subtitle: string;
   id: string;
-  reverse?: boolean|false;
   imagenActividad:ImageMetadata;
 }
-const { color, title, subtitle, id,imagenActividad,reverse} = Astro.props;
+const { color, title, subtitle, id,imagenActividad} = Astro.props;
 const textColor = `text-${color}`;
 ---
 
 <div class="flex flex-col items-start flex-1 justify-between p-2 ">
 
-    <div class="font-bold  text-left text-md md:text-xl mb-2">{title}</div>
-    <p class="text-gray-700 text-left pb-2">
+    <h3 class="font-bold  text-left text-md md:text-xl mb-2 balance">{title}</div>
+    <p class="text-gray-700 text-left pb-2 balance">
       {subtitle}
     </p>
-    <Image class="h-40 w-full  object-cover self-center rounded-[24px]" src={imagenActividad} alt={title}/>
+    <Image class="h-40 w-full  object-cover self-center rounded-[18px]" src={imagenActividad} alt={title}/>
 
 
  <!--<div class="px-6 pt-4 pb-2">
@@ -31,5 +30,3 @@ const textColor = `text-${color}`;
     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
   </div> --> 
 </div>
-
-

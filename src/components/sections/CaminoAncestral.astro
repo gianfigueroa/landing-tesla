@@ -2,42 +2,27 @@
 import Section from "../Section.astro";
 ---
 
-<Section
-  title="Nuestro Lugar"
-  subtitle=""
-  id="camino-ancestral",
-  showFooterContent={true}
+<section
+ id="camino-ancestral",
+  class=" bg-white h-full w-screen text-center relative p-8 md:px-8 lg:px-16"
+  data-header-color="white" data-header-background-color="#00000000"
 >
-<div slot="content" class="flex flex-col lg:flex-row  items-center">
-  <img
-    slot="background"
-    alt="Model Y"
-    class="w-full lg:w-1/2 h-40 sm:h-72 lg:h-full object-cover rounded-bl-[30%] rounded-tr-[30%] lg:rounded-bl-[50%] lg:rounded-tr-[50%]"
-    src="maloca-hamacas.webp"
-    id="bg-image-modely"
-  />
-  <div class="w-full lg:w-1/2 h-full text-left pt-4 lg:pt-0 lg:pl-8">
-    <p class="font-light text-lg sm:text-2xl 	">
-      Podrá disfrutar de lo mejor de nuestra naturaleza para desconectarte de mundo a travez de las medicinas ancestrales.
-      <br>
-      <br>
-      Encontraras actividades como: Ceremonias de ayahuasca, Kamboo, Apiterapia, Mambe, Caminatas por el bosques, Música Medicina, Arte y Retiros espirituales.
-      <br> 
-      <br> 
-      Haciendo parte de nuestra hermosa comunidad para compartir tus vivencias en familia.
-    </p>
-  </div>
-</div>
-  <div slot="footer" class="gap-x-6 flex mx-auto">
 
-  </div>
+      <div class="flex flex-col lg:flex-row  items-center">
+        <img
+          slot="background"
+          alt="Model Y"
+          class="w-full lg:w-1/2 h-40 sm:h-72 lg:h-full object-cover rounded-bl-[30%] rounded-tr-[30%] lg:rounded-bl-[20%] lg:rounded-tr-[60%]"
+          src="maloca-hamacas.webp"
+          id="bg-image-modely"
+        />
+        <div class="w-full lg:w-1/2 h-full text-c pt-4 lg:pt-0 lg:pl-8">
+          <p class="font-light text-lg sm:text-2xl">Podrá disfrutar de lo mejor de nuestra naturaleza para desconectarte de mundo a travez de las medicinas ancestrales.</p>
+          <br>
+            <p class="font-light text-lg sm:text-2xl">Encontraras actividades como: Ceremonias de ayahuasca, Kamboo, Apiterapia, Mambe, Caminatas por el bosques, Música Medicina, Arte y Retiros espirituales.</p>
+            <br>
+            <p class="font-light text-lg sm:text-2xl"> Haciendo parte de nuestra hermosa comunidad para compartir tus vivencias en familia.</p>
+        </div>
+      </div>
 
- <!-- <img
-    slot="background"
-    alt="Model Y"
-    class="h-full w-full object-cover object-center bg-image"
-    src="maloca-hamacas.webp"
-    id="bg-image-modely"
-  /> -->
-</Section>
-
+</section>

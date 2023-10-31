@@ -2,7 +2,6 @@
 import LandingHeader from "../components/LandingHeader.astro";
 import Actividades from "../components/sections/Actividades.astro";
 import CaminoAncestral from "../components/sections/CaminoAncestral.astro";
-import VideoSection from "../components/sections/HeroSection.astro";
 import Layout from "../layouts/Layout.astro";
 import ActivityYage from "../assets/images/actividades/yage.jpg"
 import Retiros from "../assets/images/actividades/retiros.jpg"
@@ -14,52 +13,85 @@ import Musica from "../assets/images/actividades/musica.jpg"
 import Arte from "../assets/images/actividades/arte.jpg"
 import Ninos from "../assets/images/actividades/ninos.jpg"
 import HeroSection from "../components/sections/HeroSection.astro";
+import Tienda from "../components/sections/Tienda.astro";
 let actividades=[
   {
     title:"Ceremonia Ayahuasca",
-    subtitle:"Planta que Dios dejo para aprender a vivir",
+    subtitle:"Planta que Dios dejo para aprender a vivir.",
     image:ActivityYage
   },
   {
     title:"Retiros Espitiruales",
-    subtitle:"aventura por el bosque",
+    subtitle:"Espacios de tiempo dedicados a la búsqueda interior.",
     image:Retiros
   },
   {
     title:"Apiterapia",
-    subtitle:"aventura por el bosque",
+    subtitle:"Aplicar abejas para prevenir y curar enfermedades.",
     image:Abeja
   },
   {
     title:"Kamboo",
-    subtitle:"aventura por el bosque",
+    subtitle:"Veneno de rana para limpiar el cuerpo y el alma.",
     image:Kamboo
   },  
   {
     title:"Mambe",
-    subtitle:"aventura por el bosque",
+    subtitle:"Medicina ancestral de la coca.",
     image:Mambe
   },
   {
     title:"Senderismo",
-    subtitle:"aventura por el bosque",
+    subtitle:"Aventura por el bosque.",
     image:Senderismo
   },
   {
     title:"Musica Medicina",
-    subtitle:"aventura por el bosque",
+    subtitle:"Sonidos, cantos e instrumentos para armonizar.",
     image:Musica
   },
   {
     title:"Arte",
-    subtitle:"aventura por el bosque",
+    subtitle:"Pinturas al estilo realismo magico.",
     image:Arte
   },
   {
-    title:"Integracion con los niños de la comunidad",
-    subtitle:"aventura por el bosque",
+    title:"Integracion con los niños.",
+    subtitle:"Fomentar la cultura a los niños de la comunidad.",
     image:Ninos
   },
+]
+let products=[
+  {
+    title:"Mambe",
+    subtitle:"Medicina ancestral de la coca.",
+    image:ActivityYage
+  },
+  {
+    title:"Ambil",
+    subtitle:"Espacios de tiempo dedicados a la búsqueda interior.",
+    image:Retiros
+  },
+  {
+    title:"Rape",
+    subtitle:"Aplicar abejas para prevenir y curar enfermedades.",
+    image:Abeja
+  },
+  {
+    title:"Manillas",
+    subtitle:"Veneno de rana para limpiar el cuerpo y el alma.",
+    image:Kamboo
+  },  
+  {
+    title:"Collares Dama",
+    subtitle:"Medicina ancestral de la coca.",
+    image:Mambe
+  },
+  {
+    title:"Pinturas (diseños ancestral)",
+    subtitle:"Aventura por el bosque.",
+    image:Senderismo
+  }
 ]
 ---
 <Layout title="Camino Ancestral - Medicina para el Alma">
@@ -69,8 +101,9 @@ let actividades=[
     class="w-full overflow-y-auto overflow-x-hidden scroll-smooth"
   >
       <HeroSection />
-      <Actividades actividades={actividades} />
       <CaminoAncestral />
+      <Actividades actividades={actividades} />
+      <Tienda products={products} />
   </main>
 </Layout>
       
