@@ -1,17 +1,13 @@
 ---
-
-
-
 const { } = Astro.props;
-
 ---
 
-<section id="contacto" class="h-full w-screen text-center relative pb-16 px-4 md:px-8 lg:px-16 grid place-content-center">
-  <h2 class="text-lime-800 py-12 text-[40px] sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title ">
+<section id="contacto" class="w-full p-8 sm:px-32 lg:px-96 text-center relative ">
+  <h2 class="text-lime-800  text-[40px] sm:text-[80px] lg:text-[100px] font-medium font-['PermanentMarker'] headear-title ">
     Contacto
   </h2>
 
-    <div class="w-full max-w-sm space-y-2 text-left ">
+    <div class="space-y-2 text-left">
       <div class="space-y-2">
         <label
           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -42,14 +38,28 @@ const { } = Astro.props;
       <div class="space-y-2">
         <label
           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="email"
+        >
+          Celular
+        </label>
+        <input
+          type="tel"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="email"
+          placeholder="Ingresa tu numero de celular"
+        />
+      </div>
+      <div class="space-y-2">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           for="message"
         >
-          Message
+          Mensaje
         </label>
         <textarea
           class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]"
           id="message"
-          placeholder="Enter your message"
+          placeholder="Ingresa tu mensaje"
         ></textarea>
       </div>
       <button
@@ -59,12 +69,12 @@ const { } = Astro.props;
         Enviar
       </button>
     </div>
-    <div class="grid items-center sm:grid-cols-2 pt-4">
-      <div class="space-y-3 text-left">
-        <p class="text-md lg:text-2xl font-semibold">Whatsapp </p>
-        <p class="text-md lg:text-2xl ">(+57) 3148053463 </p>
-        <p class="text-md lg:text-2xl font-semibold">Email</p>
-        <p class="text-md lg:text-2xl ">taitajosemorayage@gmail.com</p>
+  
+      <div class="py-8 flex flex-wrap">
+        <p class="text-md lg:text-2xl font-semibold flex-[30%] text-right px-2">Whatsapp</p>
+        <p class="text-md lg:text-2xl font-extralight flex-[70%] text-left">(+57) 3148053463 </p>
+        <p class="text-md lg:text-2xl font-semibold flex-[30%] text-right px-2">Email</p>
+        <p class="text-md lg:text-2xl font-extralight  flex-[70%] text-left">taitajosemorayage@gmail.com</p>
       </div>
-    </div>
+  
 </section>
