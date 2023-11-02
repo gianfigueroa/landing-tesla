@@ -24,8 +24,5 @@ module.exports = {
 				secondary: '#365314', // Cambia el color secundario
 			  },
 		},
-	},
-	plugins: [
-		require('tailwind-scrollbar'),
-	],
+	}
 }
